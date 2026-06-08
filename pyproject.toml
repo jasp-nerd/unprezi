@@ -1,0 +1,35 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "unprezi"
+version = "0.1.0"
+description = "Export prezi.com presentations to PDF. Drives a headless browser and screenshots every step."
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+authors = [{ name = "jasp-nerd" }]
+keywords = ["prezi", "pdf", "prezi-to-pdf", "playwright", "presentation", "export"]
+classifiers = [
+    "Environment :: Console",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Multimedia :: Graphics :: Presentation",
+    "Topic :: Utilities",
+]
+dependencies = [
+    "playwright>=1.40",
+    "img2pdf>=0.4",
+    "Pillow>=9",
+]
+
+[project.urls]
+Homepage = "https://github.com/jasp-nerd/unprezi"
+Issues = "https://github.com/jasp-nerd/unprezi/issues"
+
+[project.scripts]
+unprezi = "unprezi.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["unprezi"]

@@ -1,0 +1,21 @@
+# python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+
+# tooling
+.ruff_cache/
+.pytest_cache/
+.mypy_cache/
+
+# scratch output from running the tool
+*.pdf
+/out/
+/frames/
+
+# os
+.DS_Store
