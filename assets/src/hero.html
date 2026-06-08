@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; animation: none !important; transition: none !important; }
+  html, body { width: 1280px; height: 420px; overflow: hidden; }
+  body {
+    position: relative;
+    font-family: "Space Grotesk", system-ui, sans-serif;
+    color: #f4f5f7;
+    background:
+      radial-gradient(800px 500px at 4% -30%, rgba(139,123,255,.30), transparent 60%),
+      radial-gradient(700px 500px at 102% 130%, rgba(57,160,255,.20), transparent 55%),
+      #0b0d12;
+    display: flex; align-items: center; padding: 0 72px; gap: 36px;
+  }
+  body::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .left { width: 560px; flex: none; z-index: 1; }
+  .brand { display: flex; align-items: center; gap: 16px; }
+  .brand svg { width: 56px; height: 56px; }
+  .wordmark { font-size: 76px; font-weight: 700; letter-spacing: -.04em; line-height: .9; }
+  .tagline { font-size: 25px; font-weight: 500; color: #c7ccd6; margin-top: 20px; line-height: 1.3; max-width: 520px; }
+  .cmd {
+    font-family: "Space Mono", monospace; font-size: 18px; color: #9bb6ff;
+    margin-top: 24px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08);
+    border-radius: 8px; padding: 12px 16px; display: inline-block;
+  }
+  .cmd .dollar { color: #4a5775; }
+
+  .strip { position: relative; flex: 1; height: 100%; }
+  .page {
+    position: absolute; width: 300px; border-radius: 10px; overflow: hidden; background: #11131a;
+    box-shadow: 0 30px 60px -28px rgba(0,0,0,.8); outline: 1px solid rgba(255,255,255,.06);
+  }
+  .page img { display: block; width: 100%; }
+  .a { top: 60px; left: 30px; transform: rotate(-7deg); filter: brightness(.8); }
+  .b { top: 96px; left: 150px; transform: rotate(-1deg); filter: brightness(.9); }
+  .c { top: 70px; left: 285px; transform: rotate(6deg); }
+</style>
+</head>
+<body>
+  <div class="left">
+    <div class="brand">
+      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs><linearGradient id="g" x1="6" y1="6" x2="58" y2="58" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#8b7bff"/><stop offset="1" stop-color="#39a0ff"/></linearGradient></defs>
+        <rect x="6" y="6" width="52" height="52" rx="13" stroke="url(#g)" stroke-width="3" opacity="0.3"/>
+        <rect x="6" y="6" width="35" height="35" rx="10" stroke="url(#g)" stroke-width="3" opacity="0.6"/>
+        <rect x="6" y="6" width="19" height="19" rx="6" fill="url(#g)"/>
+      </svg>
+      <div class="wordmark">unprezi</div>
+    </div>
+    <div class="tagline">Export any prezi.com presentation to a clean PDF &mdash; one page per step.</div>
+    <div class="cmd"><span class="dollar">$</span> unprezi https://prezi.com/view/&hellip;</div>
+  </div>
+  <div class="strip">
+    <div class="page a"><img src="./shots/frame-2.jpg" alt=""></div>
+    <div class="page b"><img src="./shots/frame-3.jpg" alt=""></div>
+    <div class="page c"><img src="./shots/frame-1.jpg" alt=""></div>
+  </div>
+</body>
+</html>
