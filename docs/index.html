@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>unprezi — export prezi.com presentations to PDF</title>
+<meta name="description" content="unprezi exports a prezi.com presentation to a PDF. It plays the presentation in a headless browser and screenshots every step. Works on current prezi.com/view/ links, no Prezi Pro account needed.">
+<link rel="icon" href="img/logo.svg" type="image/svg+xml">
+<meta property="og:title" content="unprezi — export prezi.com presentations to PDF">
+<meta property="og:description" content="Play a Prezi in a headless browser, screenshot every step, get a clean PDF. No Pro account.">
+<meta property="og:image" content="img/social-preview.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#0b0d12; --panel:#0e1117; --ink:#f4f5f7; --muted:#aab1c0; --dim:#6b7385;
+          --accent:#8b7bff; --accent2:#39a0ff; --line:rgba(255,255,255,.08); }
+  * { margin:0; box-sizing:border-box; }
+  body { font-family:"Space Grotesk",system-ui,sans-serif; color:var(--ink); background:var(--bg);
+         line-height:1.5; -webkit-font-smoothing:antialiased; }
+  a { color:inherit; }
+  .wrap { max-width:920px; margin:0 auto; padding:0 24px; }
+  header { display:flex; align-items:center; justify-content:space-between; padding:22px 0; }
+  .brand { display:flex; align-items:center; gap:11px; font-weight:700; font-size:21px; letter-spacing:-.02em; }
+  .brand img { width:30px; height:30px; }
+  .ghbtn { font-size:15px; color:var(--muted); text-decoration:none; border:1px solid var(--line);
+           padding:8px 14px; border-radius:9px; }
+  .ghbtn:hover { color:var(--ink); border-color:rgba(255,255,255,.25); }
+
+  .hero { text-align:center; padding:70px 0 30px;
+          background:radial-gradient(680px 380px at 50% -40%, rgba(139,123,255,.22), transparent 70%); }
+  h1 { font-size:64px; font-weight:700; letter-spacing:-.04em; line-height:1; }
+  .sub { font-size:23px; color:var(--muted); margin:22px auto 0; max-width:620px; }
+  .cta { display:flex; gap:14px; justify-content:center; margin-top:34px; flex-wrap:wrap; }
+  .btn { text-decoration:none; padding:13px 22px; border-radius:11px; font-weight:600; font-size:16px; }
+  .btn.primary { background:linear-gradient(135deg,var(--accent),var(--accent2)); color:#0a0a12; }
+  .btn.ghost { border:1px solid var(--line); color:var(--ink); }
+  .btn.ghost:hover { border-color:rgba(255,255,255,.3); }
+
+  .cmd { font-family:"Space Mono",monospace; font-size:16px; color:#cfd5e1;
+         background:var(--panel); border:1px solid var(--line); border-radius:10px;
+         padding:14px 18px; display:inline-block; margin-top:30px; text-align:left; }
+  .cmd .d { color:var(--dim); } .cmd .c { color:var(--dim); }
+
+  .shot { margin:46px 0; text-align:center; }
+  .shot img { width:100%; max-width:780px; border-radius:14px; border:1px solid var(--line);
+              box-shadow:0 40px 90px -40px rgba(0,0,0,.8); }
+
+  .feats { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin:40px 0 10px; }
+  .feat { background:var(--panel); border:1px solid var(--line); border-radius:13px; padding:22px; }
+  .feat h3 { font-size:17px; margin-bottom:8px; }
+  .feat p { font-size:15px; color:var(--muted); }
+  .feat .mono { font-family:"Space Mono",monospace; color:var(--accent); font-size:13px; }
+
+  footer { text-align:center; color:var(--dim); font-size:14px; padding:50px 0 60px; border-top:1px solid var(--line); margin-top:40px; }
+  footer a { color:var(--muted); text-decoration:none; }
+  @media (max-width:680px){ h1{font-size:44px} .feats{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand"><img src="img/logo.svg" alt=""> unprezi</div>
+    <a class="ghbtn" href="https://github.com/jasp-nerd/unprezi">GitHub ↗</a>
+  </header>
+
+  <section class="hero">
+    <h1>Get your Prezi out as a PDF</h1>
+    <p class="sub">unprezi plays a prezi.com presentation in a headless browser, screenshots every
+      step along the path, and stitches it into a clean PDF. No Prezi Pro account.</p>
+    <div class="cta">
+      <a class="btn primary" href="https://github.com/jasp-nerd/unprezi">View on GitHub</a>
+      <a class="btn ghost" href="https://github.com/jasp-nerd/unprezi#use-it">How it works</a>
+    </div>
+    <div class="cmd"><span class="d">$</span> pip install unprezi<br><span class="d">$</span> unprezi "https://prezi.com/view/&hellip;" <span class="c"># → your-talk.pdf</span></div>
+  </section>
+
+  <div class="shot"><img src="img/demo.gif" alt="unprezi running in a terminal, exporting a prezi to a PDF"></div>
+
+  <section class="feats">
+    <div class="feat"><div class="mono">/view/ + classic</div><h3>Works on today's links</h3><p>Modern <code>prezi.com/view/</code> share links and older <code>prezi.com/&lt;id&gt;/</code> ones.</p></div>
+    <div class="feat"><div class="mono">no account</div><h3>No Pro needed</h3><p>If you can open the link, you can export it. It only sees what a share link shows.</p></div>
+    <div class="feat"><div class="mono">one page / step</div><h3>What you see</h3><p>One PDF page per stop on the path, at the resolution the viewer renders.</p></div>
+  </section>
+</div>
+
+<footer>
+  <p>MIT licensed · built in the spirit of <a href="https://github.com/Gertje823/prezi2pdf">prezi2pdf</a> · <a href="https://github.com/jasp-nerd/unprezi">source on GitHub</a></p>
+</footer>
+</body>
+</html>

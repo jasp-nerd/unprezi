@@ -3,6 +3,7 @@
 </p>
 
 <p align="center">
+  <a href="https://pypi.org/project/unprezi/"><img src="https://img.shields.io/pypi/v/unprezi.svg" alt="PyPI"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT license"></a>
   <img src="https://img.shields.io/badge/python-3.9+-blue.svg" alt="Python 3.9+">
   <img src="https://img.shields.io/badge/built%20on-playwright-2ea44f.svg" alt="Built on Playwright">
@@ -34,7 +35,7 @@ thing it leans on is the presentation playing in a tab.
 ## Install
 
 ```bash
-pip install git+https://github.com/jasp-nerd/unprezi
+pip install unprezi
 playwright install chromium
 ```
 
