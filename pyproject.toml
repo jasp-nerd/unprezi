@@ -33,3 +33,6 @@ unprezi = "unprezi.cli:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["unprezi"]
+
+[tool.hatch.build.targets.sdist]
+include = ["/unprezi", "/README.md", "/LICENSE", "/pyproject.toml"]
