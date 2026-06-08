@@ -14,6 +14,10 @@ Export a prezi.com presentation to a PDF. It opens the presentation in a headles
 browser, steps through the whole path, and saves each stop as a page. Works on
 today's `prezi.com/view/` share links, and you don't need a Prezi Plus/Pro account.
 
+<p align="center">
+  <img src="assets/demo.gif" alt="unprezi running in a terminal, exporting a prezi to a 16-page PDF" width="760">
+</p>
+
 ## Why this exists
 
 I needed to get a Prezi out as a PDF and reached for [prezi2pdf](https://github.com/Gertje823/prezi2pdf),
