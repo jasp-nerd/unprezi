@@ -77,6 +77,12 @@ class Options:
     start_delay: float = 0.6
     # Hard cap so a looping or runaway presentation can't spin forever.
     max_steps: int = 600
+    # A single repeated frame isn't the end — some paths have consecutive stops
+    # that render an identical image (a build step, or two stops on the same
+    # view). We skip those and keep walking. Only this many dead presses in a
+    # row — with no new frame and no end overlay — means the path is really done
+    # (covers prezis that have no restart overlay to detect).
+    stale_limit: int = 10
     # Extra headless flags help WebGL render off-screen on some machines.
     browser_args: list[str] = field(
         default_factory=lambda: ["--use-gl=angle", "--use-angle=swiftshader"]
@@ -203,18 +209,26 @@ def capture(url: str, opts: Options | None = None, on_progress: ProgressFn = _no
             page.wait_for_timeout(1200)  # let the first frame paint
 
             frames = [_settle(page, opts)]
-            seen = {hashlib.md5(frames[0]).digest()}
             on_progress("captured step 1")
 
+            # Walk the path with the arrow key. A frame identical to the last
+            # one we kept is a duplicate stop — skip it, don't stop on it. The
+            # path is over when the restart/replay overlay appears, or when we
+            # press through several dead frames in a row with nothing new.
+            stale = 0
             while len(frames) < opts.max_steps:
                 page.keyboard.press("ArrowRight")
                 frame = _settle(page, opts)
-                digest = hashlib.md5(frame).digest()
 
-                if digest == hashlib.md5(frames[-1]).digest():
-                    break  # canvas stopped moving — end of the path
                 if _at_end(page):
-                    break  # replay/restart overlay showed up
+                    break  # replay/restart overlay showed up — real end
+
+                if hashlib.md5(frame).digest() == hashlib.md5(frames[-1]).digest():
+                    stale += 1
+                    if stale >= opts.stale_limit:
+                        break  # nothing new for a while — assume the path ended
+                    continue  # duplicate stop, keep walking
+                stale = 0
                 frames.append(frame)
                 on_progress(f"captured step {len(frames)}")
 
