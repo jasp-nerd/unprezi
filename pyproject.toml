@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "unprezi"
-version = "0.1.1"
+version = "0.1.2"
 description = "Export prezi.com presentations to PDF. Drives a headless browser and screenshots every step."
 readme = "README.md"
 requires-python = ">=3.9"

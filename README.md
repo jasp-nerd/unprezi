@@ -1,10 +1,10 @@
 <p align="center">
-  <img src="assets/hero.png" alt="unprezi — export any prezi.com presentation to a clean PDF" width="820">
+  <img src="https://raw.githubusercontent.com/jasp-nerd/unprezi/main/assets/hero.png" alt="unprezi — export any prezi.com presentation to a clean PDF" width="820">
 </p>
 
 <p align="center">
   <a href="https://pypi.org/project/unprezi/"><img src="https://img.shields.io/pypi/v/unprezi.svg" alt="PyPI"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT license"></a>
+  <a href="https://github.com/jasp-nerd/unprezi/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT license"></a>
   <img src="https://img.shields.io/badge/python-3.9+-blue.svg" alt="Python 3.9+">
   <img src="https://img.shields.io/badge/built%20on-playwright-2ea44f.svg" alt="Built on Playwright">
 </p>
@@ -16,7 +16,7 @@ browser, steps through the whole path, and saves each stop as a page. Works on
 today's `prezi.com/view/` share links, and you don't need a Prezi Plus/Pro account.
 
 <p align="center">
-  <img src="assets/demo.gif" alt="unprezi running in a terminal, exporting a prezi to a 16-page PDF" width="760">
+  <img src="https://raw.githubusercontent.com/jasp-nerd/unprezi/main/assets/demo.gif" alt="unprezi running in a terminal, exporting a prezi to a 16-page PDF" width="760">
 </p>
 
 ## Why this exists
@@ -100,7 +100,7 @@ waits longer before each shot.
 
 ## Using it from Claude Code
 
-There's a [Claude skill](skill/unprezi) in here too. Drop the `skill/unprezi`
+There's a [Claude skill](https://github.com/jasp-nerd/unprezi/tree/main/skill/unprezi) in here too. Drop the `skill/unprezi`
 folder into your skills directory and Claude can export a Prezi for you, either by
 running this CLI or by driving its own Playwright browser the same way when the
 CLI isn't installed.
@@ -121,4 +121,4 @@ approach under the hood, same goal.
 
 ## License
 
-[MIT](LICENSE).
+[MIT](https://github.com/jasp-nerd/unprezi/blob/main/LICENSE).
