@@ -19,3 +19,6 @@ venv/
 
 # os
 .DS_Store
+
+# nix
+result
